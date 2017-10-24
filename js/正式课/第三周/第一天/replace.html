@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    replace:
+//var str = "zhufeng2017zhufeng2018";
+//var str1 = str.replace(/zhufeng/g, function () {
+//    console.log(arguments);
+//    var p = arguments[0] = "zhufengpeixun";
+//    return p
+//});
+//console.log(str1);
+//var date = "20171017";
+//var data = ["零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"];
+//var str = date.replace(/\d/g, function () {
+////        console.log(arguments);
+////每一次捕获数组的第一项，都是当前最新的捕获的数字，那么这个数字是对应data里面的大写数字的索引；然后每捕获一次，执行一次
+//    return data[arguments[0]];
+//})
+//console.log(str);
+    var str="2017-10-17 12:56:30";
+    var data=["年","月","日","时","分","秒"];
+    var newStr="";
+    var i=0;
+    var str1=str.replace(/\d+/g,function () {
+        newStr += arguments[0]+data[i++];
+    });
+console.log(newStr);
+</script>
+</body>
+</html>

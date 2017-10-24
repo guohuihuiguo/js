@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #box{
+            width:100px;
+            height:200px;
+            margin:30px auto;
+            background: red;
+            opacity: 0.3;
+            filter: alpha(opacity=30);
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    var obox=document.getElementById("box");
+    console.log(getCss(obox, "opacity"));
+    function getCss(curElr,attr) {
+        if(typeof curElr==="undefined"||typeof attr==="undefined"){
+            throw new Error("参数不正确")
+        }
+        var val="";
+        //浏览器兼容的情况   首先要考虑一下window下这个属性是否存在
+        if("getComputedStyle" in window){
+            val=getComputedStyle(curElr)[attr];
+        }else{
+            if(attr==="opacity"){
+                val=curElr.currentStyle["filter"];
+                var reg=/\d+/g;
+                return reg.exec(val)/100;
+            }else{
+                val=curElr.currentStyle[attr];
+            }
+        }
+        return parseFloat(val);
+
+    }
+
+</script>
+</body>
+</html>

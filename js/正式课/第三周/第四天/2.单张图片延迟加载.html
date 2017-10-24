@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #box{
+            text-align: center;
+            width:100%;
+        }
+        img{
+            width:400px;
+            height:400px;
+            margin:1000px auto;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <img src="img/default.jpg" trueImg="img/10.jpg" alt="">
+</div>
+<script src="utils.js"></script>
+<script>
+  var obox=document.getElementById("box");
+  var oimg=obox.getElementsByTagName("img");
+  var curT=utils.offset(oimg).t;
+  var curH=oimg.offsetHeight;
+  var winH=document.documentElement.clientHeight||document.body.clientHeight;
+  var trueAdd=oimg.getAttribute("trueImg");
+
+  window.onscroll=function () {
+      if(oimg.load){
+          return;
+      }
+      var winT=document.documentElement.scrollTop||document.body.scrollTop;
+
+      if(winT+winH>curH+curT){
+          var img=document.createElement("img");
+          img.src=trueAdd;
+          img.onload=function () {
+              oimg.src=trueAdd;
+              fadein();
+              oimg.load=true;
+          }
+      }
+  }
+  function fadein() {
+      utils.setCss(oimg,"height",0);
+      utils.setCss(oimg,"width",0);
+      var timer=setInterval(function () {
+          var opc=utils.getCss(oimg,"height");
+          var ttt=utils.getCss(oimg,"width");
+          if(opc>=500||ttt>=500){
+              clearInterval(timer);
+          }
+          opc=opc+100;
+          ttt+=100;
+          var options={width:ttt,height:opc};
+          utils.setGroup(oimg,options);
+      },500);
+
+  }
+</script>
+</body>
+</html>

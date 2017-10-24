@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var ary = [20,4,2,55,66,99,4,20,55,88];
+    // var ary1 = [];
+    // for (var i = 0; i < ary.length; i++) {
+    //   var cur=ary[i];
+    //   if(ary1.indexOf(cur) === -1){
+    //     ary1.push(cur);
+    //   }
+    // }
+    var obj = {};
+    for (var i = 0; i < ary.length; i++) {
+      var cur=ary[i];
+      if (obj[cur] === cur) {
+          ary[i] = ary[ary.length-1];
+          ary.length--;
+          i--;
+          continue;
+      }
+      obj[cur]=cur;
+    }
+    console.log(ary);
+  </script>
+</body>
+</html>

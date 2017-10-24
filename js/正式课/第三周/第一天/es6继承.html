@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    class：定义一个类
+    class A{
+        constructor(name){
+            this.x=100;
+        }
+        getx(){
+            console.log(this.x);
+        }
+    };
+//    extends:扩展  继承
+    class B extends A{
+        constructor(){
+            //类B本身没有this的关键字
+            super();//必写
+            this.x=200;
+        }
+    }
+    var f=new B;
+console.log(f.getx());
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function UrlSearch(str)
+    {
+        var obj={};
+        var tt=str.replace("#","&Hash=");
+        var num=tt.indexOf("?");
+        tt=tt.substr(num+1); //取得所有参数   stringvar.substr(start [, length ]
+        var arr=tt.split("&"); //各个参数放到数组里
+        console.log(arr);
+
+        for(var i=0;i < arr.length;i++){
+            num=arr[i].indexOf("=");
+            if(num>0){
+                name=arr[i].substring(0,num);
+                value=arr[i].substr(num+1);
+                obj[name]=value;
+
+            }
+        }
+        return obj;
+    }
+    var str='http://www.zhufengpeixun.co m/stu/?name=zxt&age=28&sex=0#teacher'; //取得整个地址栏
+    var Request=UrlSearch(str); //实例化
+    console.log(Request);
+</script>
+</body>
+</html>

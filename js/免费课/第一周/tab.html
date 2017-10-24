@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            width:500px;
+            height:260px;
+            margin:0 200px;
+        }
+        ul{
+            list-style: none;
+            overflow: hidden;
+            -webkit-padding-start: 0;
+        }
+        ul li{
+            width:100px;
+            height:30px;
+            float:left;
+            font-size: 16px;
+            text-align: center;
+            line-height: 30px;
+            color: #808309;
+
+        }
+        div{
+            border:1px solid #cccccc;
+            width:500px;
+            height:260px;
+            text-align: center;
+            color:#000;
+            display: none;
+        }
+        .choose{
+            background: pink;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li class="choose">动漫</li>
+    <li>综艺</li>
+    <li>电视剧</li>
+</ul>
+<div class="choose">火影忍者</div>
+<div>中餐厅</div>
+<div>那年花开月正圆</div>
+<script>
+    var oLi = document.getElementsByTagName("li");
+    var oDiv = document.getElementsByTagName("div");
+    function change(i){
+        for(var j=0;j<oLi.length;j++){
+            oLi[j].className = null;
+            oDiv[j].className = null;
+        };
+        console.log(i);
+
+        oLi[i].className = "choose";
+        oDiv[i].className = "choose";
+    }
+    //console.log(oLi);
+    for(var i=0;i<oLi.length;i++){
+
+        oLi[i].index=i;
+
+        oLi[i].onclick = function (){
+            change(this.index)
+
+        }
+    }
+
+</script>
+</body>
+</html>

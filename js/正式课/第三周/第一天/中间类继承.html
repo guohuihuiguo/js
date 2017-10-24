@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function avgn() {
+        arguments.__proto__=Array.prototype;
+        arguments.sort(function (a,b) {
+            return a-b;
+        });
+        arguments.pop();
+        arguments.shift();
+        return eval(arguments.join('+'))/arguments.length;
+    }
+    avgn(100,98,87,88,45);
+</script>
+</body>
+</html>

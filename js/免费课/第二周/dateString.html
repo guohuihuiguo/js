@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #box{
+            width:400px;
+            height:40px;
+            line-height: 40px;
+            text-align: center;
+            margin:100px auto;
+            cursor: pointer;
+            border: 1px solid #3d92e0;
+            border-radius: 5px;
+
+        }
+    </style>
+</head>
+<body>
+<div id="box"> 北京时间：</div>
+<script>
+    function set() {
+        var oBox=document.getElementById("box");
+        var str = "2017-9-22 16:55:40";
+
+        var ary1=str.split(" ")[0].split("-");
+        var ary2=str.split(" ")[1].split(":");
+
+        function addZero(value) {
+            return value<10?"0"+value:value;
+        }
+        var newStr = ary1[0]+"年"+addZero(ary1[1])+"月"+addZero(ary1[2])+"日"+addZero(ary2[0])+"时"+addZero(ary2[1])+"分"+addZero(ary2[2])+"秒";
+        oBox.innerHTML +=newStr;
+
+    };
+    set();
+</script>
+</body>
+</html>

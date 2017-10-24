@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    1.利用arguments是一个类数组，数据类型是对象数据类型的，不是Array这个类的一个实例，所以不能array这个类原型的方法
+//    argunments instanceof Array 检测是否属于某一类，返回值为false
+//    function avgn() {
+//         var ary = [];
+//         for(var i=0;i<arguments.length;i++){
+//             ary.push(arguments[i]);
+////             或
+////             ary[ary.length]=arguments[i];
+//         }
+////        console.log(ary);
+//        ary.sort(function (a,b) {
+//            return a-b;
+//        });
+//        ary.length--;
+//        ary.shift();
+//        return eval(ary.join("+"))/ary.length;
+//
+//
+//    }
+//
+//console.log(avgn(9.5, 9.4, 9.6, 9.6, 9.9, 9.0, 10.8)); //9.6
+//    2.slice :调用数组Array原型上slice方法，改变slice中this 指向，
+//    举例：
+//    var ary=[12,78,9];
+//    Array.prototype.slice = function (){
+//        var ary =[];
+//        for(var i=0;i<this.length;i++){
+//            ary.push(this[i]);
+//        }
+//        return ary;
+//    }
+//    function avgn() {
+//        var aa=Array.prototype.slice.call(arguments);
+//        aa.sort(function (a,b) {
+//            return a-b;
+//        });
+//        aa.length--;
+//        aa.shift();
+//        return eval(aa.join("+"))/aa.length;
+//
+//    }
+//  console.log(avgn(9.5, 9.4, 9.6, 9.6, 9.9, 9.0, 10.8));//9.6
+//    3.sort
+    function avgn() {
+
+        [].sort.call(arguments,function (a,b) {
+            return a-b;
+        });
+        [].pop.call(arguments);
+        [].shift.call(arguments);
+        return eval([].join.call(arguments,"+"))/arguments.length;
+
+    }
+    console.log(avgn(9.5, 9.4, 9.6, 9.6, 9.9, 9.0, 10.8)); //9.6
+
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    avgn(3.4,4.5,6.3,6,2,9.9,7.86);
+    //普通
+//    function avgn() {
+    //        var ary=[];
+    //        for(var i=0;i<arguments.length;i++){
+    //            ary.push(arguments[i]);
+    //        };
+    //        ary.sort(function (a,b) {
+    //            return a-b;
+    //        });
+    //        ary.pop();
+    //        ary.shift();
+    //        return eval(ary.join("+"))/ary.length
+    //    }
+    //
+    //    console.log(avgn(3.4, 4.5, 6.3, 6, 2, 9.9, 7.86));
+//利用内置类Array原型上的方法slice实现
+//    function avgn() {
+//        var ary=Array.prototype.slice.call(arguments);
+//        ary.sort(function (a,b) {
+//            return a-b;
+//        });
+//        ary.pop();
+//        ary.shift();
+//        return (eval(ary.join("+"))/ary.length).toFixed(2);
+//    }
+//    console.log(avgn(3.4, 4.5, 6.3, 6, 2, 9.9, 7.86));
+    //利用内置类Array原型上的方法sort实现
+    function avgn() {
+        [].sort.call(arguments,function (a,b) {
+            return a-b;
+        });
+        [].pop.call(arguments);
+        [].shift.call(arguments);
+        return (eval([].join.call(arguments,"+"))/arguments.length).toFixed(2);
+    }
+    console.log(avgn(3.4, 4.5, 6.3, 6, 2, 9.9, 7.86));
+</script>
+</body>
+</html>

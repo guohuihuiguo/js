@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    ~function () {
+        var obj={
+            isNumber:"Number",
+            isString:"String",
+            isBoolean:"Boolean",
+            isNUll:"Null",
+            isUndefined:"Undefined",
+            isPlanObject:"Object",
+            isArray:"Array",
+            isRegExp:"RegExp",
+            isDate:"Date"
+        };
+        var checkType={};
+        for(var key in obj){
+            if(!obj.hasOwnProperty(key))continue;
+            checkType[key] =(function () {
+                var name=obj[key];
+                return function (val) {
+                    var reg=new RegExp("\\[object "+name+"\\]");
+                    return reg.test(Object.prototype.toString.call(val));
+                }
+            })();
+        }
+        window.checkType=checkType;
+    }();
+    console.log(checkType.isNumber(12));
+</script>
+</body>
+</html>

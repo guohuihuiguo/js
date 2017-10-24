@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    object create（obj）:创建一个对象，创建的这个对象的原型 没有指向object而是指向obj；
+//    object create （obj）：这是一个方法 ，返回一个对象
+//组合继承：原型继承和call的继承组合；
+
+    function A() {
+        this.x=100;
+    }
+    A.prototype.getx= function () {
+
+    }
+    function B() {
+        A.call(this);
+    }
+    B.prototype=Object.create(A.prototype);
+//    在B和object之间增加一条链，没有直接指向object的原型，而是指向A.prototype；
+    var b=new B;
+console.log(b);
+</script>
+</body>
+</html>

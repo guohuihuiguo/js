@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="2.utils.js"></script>
+<script>
+    //JSON:是一种数据格式，不是一种新的数据类型；
+    //JSON.stringify();把Json格式的对象转换成Json格式的字符串；
+    //JSON是window下的属性，是一个对象
+    // "JSON" in window  // true
+    // JSON在ie67下是不兼容；
+    //JSON.parse()把JSON格式的字符串转换为JSON格式的对象；
+    //eval把JSON格式的字符串转换为JSON格式的对象
+    var json='{"name":"zhufeng"}';
+    console.log(utils.toJson(json));
+
+</script>
+</body>
+</html>

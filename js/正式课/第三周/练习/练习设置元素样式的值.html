@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function setCss(curEle,attr,val) {
+        if(attr==="float"){
+            curEle.style[attr]=val;
+            curEle.style["styleFloat"]=val;
+            return;
+        }
+        if(attr==="opacity"){
+            curEle.style[attr]=val;
+            curEle.style["filter"]="alpha(opacity="+val*100+")";
+            return;
+        }
+        var reg=/^(width|height((margin|padding)?(top|right|bottom|left)?)?)$/;
+        if(reg.test(attr)){
+            if(!isNaN(val)){
+                val=val+"px";
+            }
+        }
+        curEle.style[attr]=val;
+    }
+    function setGroup(curEle,options) {
+        if(typeof options === "object"){
+            for(var key in options){
+                setCss(curEle,key,options[key]);
+            }
+        }
+    }
+</script>
+</body>
+</html>

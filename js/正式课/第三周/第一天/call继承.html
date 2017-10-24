@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function A() {
+        this.x=100;
+        this.y=300;
+    }
+    A.prototype.getx =function () {
+        console.log(this.x);
+    };
+    var a= new A();
+    function B() {
+        this.y=200;
+        A.call(this);
+        //类B的实例只继承类A的私有属性
+    }
+    var f=new B();
+    console.log(f);
+</script>
+</body>
+</html>

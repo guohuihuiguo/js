@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div></div>
+<div id="box"></div>
+<script>
+    var oBox = document.getElementById("box");
+
+    function pre(cur) {
+        var pre = cur.previousSibling;
+
+        while (pre) {
+            if (pre.nodeType === 1) {
+                return pre;
+            }
+            pre = pre.previousSibling;
+        }
+    }
+
+    console.log(pre(oBox));
+</script>
+</body>
+</html>

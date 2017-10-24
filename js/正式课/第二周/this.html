@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    第一题
+//    var obj = {num: 2};
+//    obj.fn = (function (num) {
+//        this.num = num * 2;
+//        num++;
+//        return function (n) {
+//            this.num += n;
+//            num++;
+//            console.log(num);
+//        }
+//    })(obj.num);//->2
+//    var fn = obj.fn;
+//    fn(10);
+//    obj.fn(20);
+//    console.log(num, obj.num);
+//第二题
+//    var num =2;
+//    var obj = {
+//        num : 0,
+//        fn : function () {
+//            var num =1;
+//            (function () {
+//
+//                ++this.num;
+//                num++;
+//                console.log(num)//3
+//            })(this.num)
+//        }
+//    }
+//    var f = obj.fn;
+//    f();
+//    console.log(window.num,obj.num) // 3  0
+//    var num=2;
+//第三题
+//    var num=3;
+//    var obj={
+//        num:2,
+//        fn:(function () {
+//            this.num *=2;
+//            num+=3;
+//            var num=1;
+//            return function () {
+//                num+=3;
+//                this.num +=2;
+//                console.log(++num)
+//            }
+//        })()
+//    }
+//    var f=obj.fn;
+//    f();
+//    obj.fn();
+//    console.log(window.num,obj.num)
+//第四题
+//var num=1;
+//var obj={num:2};
+//obj.fn=(function (num) {
+//        this.num +=2;
+//        num--;
+//
+//        return function (n) {
+//
+//            this.num +=2;
+//            num--;
+//            console.log(n+ ++num);
+//        }
+//    })(this.num);
+//
+//var f =obj.fn;
+//f(1);
+//obj.fn(2);
+//console.log(num,obj.num);
+
+//第五题
+var number=1;
+var obj={
+    number:4,
+    fn1:(function () {
+        this.number*=2;
+        number =number*2;
+        var number=3;
+        return function () {
+            this.number*=2;
+            number *=3;
+            alert(number);
+        }
+    })(),
+    db2:function () {
+        this.number*=2;
+    }
+};
+obj.fn1();
+
+var fn1=obj.fn1;
+alert(number);
+fn1();
+
+alert(window.number);
+alert(obj.number);
+</script>
+</body>
+</html>

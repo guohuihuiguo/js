@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var ary = [8,3,4,5,6,7,33];
+    var newAry = [];
+    newAry.push(ary[0]);
+    for(var i=1;i<ary.length;i++){
+        var cur=ary[i];
+        for(var j=newAry.length-1;j>=0;){
+            if(cur<newAry[j]){
+                j--;
+                if(j===-1){
+                    newAry.unshift(cur);
+                }
+            }else{
+                newAry.splice(j+1,0,cur);
+                break;
+            }
+        }
+    }
+    console.log(newAry)
+</script>
+</body>
+</html>

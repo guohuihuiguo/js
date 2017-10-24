@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #outer{
+            width: 300px;
+            height: 300px;
+            margin: 20px auto;
+            background: red;
+        }
+        #inner{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            background: blue;
+        }
+        #center{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            background: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+<div id="outer">
+    <div id="inner">
+        <div id="center"></div>
+    </div>
+</div>
+<script>
+    var outer=document.getElementById("outer");
+    var inner=document.getElementById("inner");
+    var center=document.getElementById("center");
+//    parentNode：父级节点
+//    body的父级节点是html
+//    父级参照物：offsetParent
+//     在页面中，元素没有特殊处理情况下，它的父级参照物都是body
+//    获取outer的父级参照物；
+//    偏移量，当前元素距父级参照物内边框的距离
+//    当前元素加上position属性，这个元素就变成了子元素的父级参照物,body的参照物是null；
+    console.log(outer.offsetParent);//body
+    console.log(inner.offsetParent);//body
+    console.log(center.offsetParent);//body
+
+//    ie8（不是模拟仿真）:计算偏移量会把父级参照物的边框算进去
+//     获取当前元素距离body的距离；
+//    1.获取当前元素的左偏移量＋父级参照物的边框＋父级参照物的左偏移量；一直向上获取，知道找到body为止；
+    function offset(curEle) {
+        var l=curEle.offsetLeft;
+        var t=curEle.offsetTop;
+        var p=curEle.offsetParent;
+//        只有父级参照物存在，那么才会加上父级参照物的边框的宽度和高度
+//        navigator.userAgent浏览器的版本信息
+        while (p){
+            if(!/MSIE 8\.0/.test(navigator.userAgent)){
+                l+=p.clientLeft;
+                t+=p.clientTop;
+            }
+            l+=p.offsetLeft;
+            t+=p.offsetTop;
+            p=p.offsetParent;
+        };
+        return {
+            l:l,
+            t:t
+        };
+    }
+
+    console.log(offset(inner).l);
+</script>
+</body>
+</html>

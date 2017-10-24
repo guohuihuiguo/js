@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function sum (num) {
+        if(num === 1){
+          return 0;
+        }
+        if(num%3 ===0){
+          return num + sum(num-1);
+        }else{
+          return sum(num-1);
+        }
+      }
+      console.log(sum(100));
+    </script>
+  </body>
+</html>

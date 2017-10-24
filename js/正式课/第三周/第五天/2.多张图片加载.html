@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0
+        }
+        body,html{
+            width:100%;
+        }
+        #list{
+            padding:0 15px;
+        }
+        #list li{
+            list-style: none;
+            padding: 20px 0 10px 0;
+            border-bottom: 1px solid #ccc;
+            overflow: hidden;
+
+        }
+        #list li img{
+            float:left;
+            width:75px;
+            height:60px;
+            margin-right:10px;
+        }
+        #list li .decs{
+            float:left;
+        }
+        .decs h3{
+            font-size: 14px;
+            color:#555555;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+            margin-top:10px;
+        }
+        .decs p{
+            font-size: 12px;
+            color: #666;
+
+        }
+    </style>
+</head>
+<body>
+    <ul id="list" >
+    </ul>
+<script src="utils.js"></script>
+<script>
+  var data;
+  var xhr=new XMLHttpRequest();
+  var imgList=document.getElementsByTagName("img");
+  var oUl=document.getElementById("list");
+
+
+  xhr.open("get","json/newList.json",false);
+  xhr.onreadystatechange=function () {
+      if(xhr.readyState===4|/^2\d{2}$/.test(xhr.status)){
+          data=utils.toJson(xhr.responseText);
+      }
+  }
+  xhr.send(null);
+//  console.log(data);
+
+    function bindData() {
+        var str=``;
+        for(var i=0;i<data.length;i++){
+            var cur=data[i];
+            str+=
+                `<li>
+                <img src="img/default.jpg" trueImg="${cur.img}">
+                <div class="decs">
+                    <h3>${cur.title}</h3>
+                    <p>${cur.desc}</p>
+                </div>
+            </li>`
+        }
+        oUl.innerHTML=str;
+    }
+  bindData();
+
+  //    循环每一张图片，判断当前图片是否需要加载；
+  function delayImg() {
+    for(var i=0;i<imgList.length;i++){
+        delayImgCode(i)
+    }
+  }
+  function delayImgCode(i) {
+      var curImg=imgList[i];
+      if(curImg.load){
+          return;
+      }
+      var curT=utils.offset(curImg).t;
+      var curH=curImg.offsetHeight;
+      var winH=document.documentElement.clientHeight||document.body.clientHeight;
+      var scroll=utils.win("scrollTop");
+      var trueAdd=curImg.getAttribute("trueImg");
+      if(winH+scroll>=curT+curH){
+          var oimg=document.createElement("img");
+          oimg.src=trueAdd;
+          oimg.onload=function () {
+              curImg.src=trueAdd;
+//              fadein(curImg);
+              curImg.load=true;
+          }
+      }
+  }
+  delayImg();
+  window.onscroll=delayImg;
+  function fadein(cur) {
+      utils.setCss(cur,"opacity",0);
+      var timer=setInterval(function () {
+          var opc=utils.getCss(cur,"opacity");
+          if(opc>=1){
+              clearInterval(timer);
+          }
+          opc=opc+0.2;
+          utils.setCss(cur,"opacity",opc);
+      },500);
+
+  }
+
+</script>
+</body>
+</html>

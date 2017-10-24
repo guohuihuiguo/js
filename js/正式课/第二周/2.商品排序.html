@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        #box {
+            width: 200px;
+            margin: 100px auto;
+        }
+
+        #box div {
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            color: red;
+            border-bottom: 1px dashed #3d92e0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div>66</div>
+    <div>77</div>
+    <div>33</div>
+    <div>99</div>
+</div>
+<script src="2.utils.js"></script>
+<script>
+    var oBox = document.getElementById("box");
+    var oDiv = oBox.getElementsByTagName("div");
+    var ary = utils.toListArray(oDiv);
+    ary.sort(function (a, b) {
+        return a.innerHTML - b.innerHTML;
+    });
+    for (var i = 0; i < ary.length; i++) {
+        oBox.appendChild(ary[i]);
+    }
+    //DOM映射：在js中，
+</script>
+</body>
+</html>

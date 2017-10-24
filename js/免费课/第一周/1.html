@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/javascript">
+    //js四种输出方式
+    //1.alert() 浏览器输出
+    alert('111');
+    //2.document.write('内容') 在页面输出中显示
+    document.write('22222');
+    //3.console.log('内容') 在控制台输出
+    console.log('33333');
+    //innerHTML/innerText 向指定元素中动态添加内容 区别:innerHTML可以识别标签而innerText不行
+    alert("你是否确定关闭当前窗口么?");
+    confirm("你好么?");
+    var oApp =  document.getElementById('app');
+    oApp.innerHTML = '<a>您好 ,欢迎来到珠峰培训</a>';
+    //oApp.innerText = '<a></a>'
+</script>
+
+</body>
+</html>

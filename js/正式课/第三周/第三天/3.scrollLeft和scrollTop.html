@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            height:1000px;
+            width:120%;
+        }
+        #box{
+            width:100px;
+            height:100px;
+            background: red;
+            margin:0 auto;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+//    scrollLeft :一般应用于页面横向滚动条卷起的宽度；scrollTop：页面纵向滚动条卷起的高度；
+//    以前学的11个属性都是只读属性：
+//    scrollLeft  和 scrollTop是读写性
+    function win(attr,value) {
+        if(typeof value==="undefined"){
+            return document.documentElement[attr] || document.body[attr];
+        }
+        document.documentElement[attr]=value;
+        document.body[attr]=value;
+    }
+    win("scrollTop",300)
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <ul>
+    
+    </ul>
+</div>
+<script !src="">
+    var oUl= document.getElementsByTagName("ul")[0];
+    var data=[{ttt:"水杯",price:30},{ttt:"桌子",price:300},{ttt:"钢笔",price:60},{ttt:"笔记本",price:15}];
+
+    data.forEach(function(item,index){
+        console.log(item,index);
+        var name=item.ttt;
+        var jiage=item.price;
+        oUl.innerHTML+="<li>商品名称:"+name+',商品价格:$'+jiage+"</li>";
+    })
+</script>
+</body>
+</html>

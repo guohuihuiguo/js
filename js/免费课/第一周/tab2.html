@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      *{
+        margin:0;
+        padding:0;
+      }
+      #tab{
+        width:500px;
+        height:400px;
+        margin:50px auto;
+      }
+      #tab ul{
+        list-style: none;
+        overflow: hidden;
+      }
+      #tab ul li{
+        width:80px;
+        height:40px;
+        line-height: 40px;
+        text-align: center;
+        margin-right: 15px;
+        border:1px solid #eee;
+        float: left;
+      }
+      #tab div{
+        width:500px;
+        height:300px;
+        border:1px solid #ccc;
+        text-align: center;
+        line-height: 300px;
+        display: none;
+      }
+      #tab div.select,#tab ul li.select{
+        display: block;
+        background: #3d92e0;
+      }
+    
+    </style>
+  </head>
+  <body>
+    <div id="tab">
+      <ul>
+        <li class="select">动漫</li>
+        <li>电影</li>
+        <li>电视剧</li>
+      </ul>
+      <div class="select">
+          火影忍者
+      </div>
+      <div >
+        美国队长
+      </div>
+      <div >
+          那年
+      </div>
+    </div>
+    <script !src="">
+      var otab=document.getElementById("tab");
+      var odiv=otab.getElementsByTagName("div");
+      var oli= document.getElementsByTagName('li');
+     // console.log(oLi);
+      for (var i=0;i<oli.length;i++){
+        oli[i].index=i;
+        oli[i].onclick=function(){
+
+          for(var j=0;j<oli.length;j++){
+            oli[j].className="null";
+            odiv[j].className="null";
+          }
+          this.className = 'select';
+          odiv[this.index].className = 'select';
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #box{
+            width:100px;
+            height:40px;
+            line-height: 40px;
+            text-align: center;
+            margin:100px auto;
+            cursor: pointer;
+            border: 1px solid #3d92e0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    var oBox=document.getElementById("box");
+    function getcode() {
+        var str="";
+        var i=0;
+        while (i<4){
+            str += Math.round(Math.random()*9+0);
+            i++;
+        }
+        oBox.innerHTML=str;
+    };
+
+    oBox.onclick = function () {
+        getcode();
+    };
+
+    getcode();
+</script>
+</body>
+</html>

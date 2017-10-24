@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ul
+<ul></ul>
+<script>
+    var oUl = document.getElementsByTagName('ul')[0];
+    var ary = [{name: "键盘", price: 198}, {name: "键盘电脑", price: 4998}, {name: "鼠标", price: 98}];
+    var flag = document.createDocumentFragment();
+    for (var i = 0; i < ary.length; i++) {
+        var oLi = document.createElement("li");
+        oLi.innerHTML = "商品名称：" + ary[i].name + " ," + "商品价格：" + ary[i].price;
+        flag.appendChild(oLi);
+    }
+    oUl.appendChild(flag);
+    flag = null;
+    //字符串拼接
+    //    var str = "";
+    //    for(var i=0;i<ary.length;i++){
+    //        str += "<li>商品名称："+ary[i].name+" ,"+"商品价格："+ary[i].price+"</li>";
+    //
+    //    }
+    //    oUl.innerHTML = str;
+    //es6语法
+    //    var str = ``;
+    //    for (var i = 0;i<ary.length;i++) {
+    //        str +=`<li>商品名称：${ary[i].name},商品价格：${ary[i].price}</li>`
+    //    }
+    //    oUl.innerHTML = str;
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+div
+<script>
+    var ary = [4, 2, 88, 44, 65, 200, 15];
+
+    function quickSort(a) {
+        //console.log(a.length);
+        if (a.length <= 1) {
+            return a;
+        }
+        ;
+        var index = Math.floor(a.length / 2);
+        var midden = a.splice(index, 1)[0];
+        var left = [];
+        var right = [];
+
+        for (var i = 0; i < a.length; i++) {
+            var cur = a[i];
+            if (midden > cur) {
+                left.push(cur);
+            } else {
+                right.push(cur);
+            }
+        }
+        return quickSort(left).concat(midden, quickSort(right))
+
+
+    }
+
+    console.log(quickSort(ary));
+</script>
+</body>
+</html>

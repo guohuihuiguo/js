@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="box"></div>
+    <div id="node"></div>
+    <script type="text/javascript">
+      var onode=document.getElementById("node");
+
+      function getcode(cur) {
+          var brother=cur.previousSibling;
+          console.log(brother);
+          while (brother) {
+              if (brother.nodeType === 1) {
+                  return brother;
+              }
+              brother = brother.previousSibling;
+          }
+      }
+      console.log(getcode(onode));
+
+    </script>
+  </body>
+</html>

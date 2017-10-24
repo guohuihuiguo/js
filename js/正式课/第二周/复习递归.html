@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+// 1.能被整除的
+
+    function sum(num) {
+        if(num===2){
+            return 0;
+        }
+        if(num%3===0){
+            return num + sum(num-1);
+        }else{
+            return sum(num-1);
+        }
+
+    }
+// 2.不能被整除的
+
+    function sum(num) {
+        if(num === 0){
+            return num
+        }
+        if(num%3===0){
+            return sum(num-1);
+        }else{
+            return num+sum(num-1);
+        }
+
+    }
+</script>
+</body>
+</html>

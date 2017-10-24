@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box">
+	<div id="div1"></div>
+	<div id="div2"></div>
+</div>
+
+<script>
+	var oBox=document.getElementById('box');
+	var div = document.createElement("div");
+	var div1 = document.getElementById("div1");
+	var div2 = document.getElementById("div2");
+//	console.log(div);
+// oBox.appendChild(div);//容器末尾；
+// oBox.insertBefore(div,div1)//某个元素的前面添加一项；
+//替换
+// oBox.replaceChild(div,div1);
+//删除
+// oBox.removeChild(div1);
+//克隆节点  参数为true，深克隆（把所有的字节点都复制一份）；false，浅克隆（只克隆当前元素）不传参默认是false
+oBox.cloneNode(true);
+</script>
+</body>
+</html>

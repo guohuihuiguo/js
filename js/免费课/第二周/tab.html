@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #tab {
+            margin: 100px auto;
+            width: 700px;
+            height: 500px;
+        }
+
+        #tab ul {
+            list-style: none;
+            -webkit-padding-start: 0;
+            -webkit-padding-end: 0;
+            overflow: hidden;
+            -webkit-margin-before: 0em;
+            -webkit-margin-after: 0em;
+
+        }
+
+        #tab ul li {
+            width: 80px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border: 1px solid #ccc;
+            float: left;
+        }
+
+        #tab div {
+            width: 500px;
+            height: 300px;
+            line-height: 300px;
+            border: 1px solid #ccc;
+            text-align: center;
+            display: none;
+        }
+
+        #tab div.choose, #tab ul li.choose {
+            display: block;
+            background: #3d92e0;
+        }
+    </style>
+</head>
+<body>
+<div id="tab">
+    <ul>
+        <li class="choose">动漫</li>
+        <li>综艺</li>
+        <li>电影</li>
+    </ul>
+    <div class="choose">火影忍者</div>
+    <div>集结吧王者</div>
+    <div>美国队长</div>
+</div>
+<script>
+    var oTab = document.getElementById("tab");
+    var oDiv = oTab.getElementsByTagName("div");
+    var oLis = document.getElementsByTagName("li");
+
+    for (var i = 0; i < oLis.length; i++) {
+        oLis[i].index = i;
+        oLis[i].onclick = function () {
+
+            for (var j = 0; j < oLis.length; j++) {
+                oLis[j].className = "null";
+                oDiv[j].className = "null";
+            }
+            this.className = "choose";
+            oDiv[this.index].className = "choose";
+
+        }
+
+    }
+
+
+</script>
+</body>
+</html>

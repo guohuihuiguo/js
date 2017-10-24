@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #box{
+            width:100px;
+            height:40px;
+            line-height: 40px;
+            text-align: center;
+            margin:100px auto;
+            cursor: pointer;
+            border: 1px solid #3d92e0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<a href=""></a>
+<div id="box"></div>
+<script>
+    var oBox=document.getElementById("box");
+    function getcode() {
+         var str="abcdefghigklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+         var tt="ABCEFGQ";
+         var i=0;
+         var str1 = "京";
+        var t =Math.round(Math.random()*6);
+        str1+=tt[t];
+         while (i<4){
+             var index =Math.round(Math.random()*61);
+             var cur = str[index];
+             if(str1.toLowerCase().indexOf(cur.toLowerCase())===-1){
+                 str1+=cur;
+                 i++;
+             }
+         }
+        oBox.innerHTML=str1;
+    };
+    var count=0;
+    oBox.onclick = function () {
+        if(count===3){
+            return;
+        }
+        count++;
+        getcode();
+    };
+
+    getcode();
+</script>
+</body>
+</html>

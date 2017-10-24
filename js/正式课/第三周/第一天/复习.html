@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//（ ）可以吧一个大正则分解成几个小正则
+//    有效数字的正则：整数 负数 小数 整数 0；
+//    括号：可以改变正则的优先级；
+    var reg=/^-?(\d|[1-9]\d+)(\.\d+)?$/;
+console.log(reg.test("0"));
+
+</script>
+</body>
+</html>

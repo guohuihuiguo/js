@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    正则的引用：处理字符串；
+//    test：匹配  返回值true false
+//    exec：把符合正则的内容找出来  返回一个数组：［］
+//    （）改变正则的优先级
+//    带有分组的正则：不仅捕获大正则的内容，还要对小正则内容进行捕获
+//    ？：?=正向预查 ?!负向预查 ?:放在分组的前面，只匹配不捕获
+//    放在量词的后面，取消捕获的贪婪性
+//    正则的修饰符
+//    懒惰性：g加到正则的后面，取消捕获的懒惰性
+//    i：忽略大小写
+//    m：多行匹配
+//    replace：字符串的方法
+//    继承：
+//    1.原型继承：类b的原型等于类a的实例
+//    2.call继承：在类b的方法中类a.call（this）
+//    3.中间类继承： arguments.__proto__=Array.prototype;
+//    4.寄生组合式继承：在类b的方法中类a.call（this） 类b的原型等于object.create(a.prototype);
+//    5.es6继承：extends   constructor(){super()};
+//    var str = "my name is zhufeng, i am 8 year old";
+//    var reg=/\b([a-z])[a-z]*\b/g;
+//    var a=str.replace(reg,function () {
+//        console.log(arguments);
+//        console.log(arguments[1].toUpperCase() + arguments[0].substr(1));
+//        return arguments[1].toUpperCase()+arguments[0].substr(1);
+//    });
+//    console.log(a);
+//    function offset(curEle) {
+//        var p=curEle.offsetParent;
+//        var l=curEle.offsetLeft;
+//        var t=curEle.offsetTop;
+//        while (p){
+//            if(!/MSIE 8\.0/.test(navigator.userAgent)){
+//                l+=p.clientLeft;
+//                t+=p.clientTop;
+//            }
+//            l+=p.offsetLeft;
+//            t+=p.offsetTop;
+//            p=p.offsetParent;
+//        }
+//        return {
+//            l:l,
+//            t:t
+//        }
+//    }
+//offset()
+    function win(attr,value) {
+        if(typeof value ==="undefined"){
+            return document.documentElement[attr]||document.body[attr];
+        }
+        document.documentElement[attr]=value;
+        document.body[attr]=value;
+    }
+    win("scrollLeft","")
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    var oBox=document.getElementById("box");
+    oBox.style.opacity ="0.3";
+    function setCss(curElr,attr,val) {
+        if(attr==="float"){
+            curElr.style[attr]=val;
+            curElr.style["styleFloat"]=val;
+            return;
+        }
+        if(attr==="opacity"){
+            curElr.style[attr]=val;
+            curElr.style["fiter"]="alpha(opacity="+val*100+")";
+            return;
+        }
+
+        var reg=/^(width|height((margin|padding)?(top|bottom|right|left)?)?)$/;
+        if(reg.test(attr)){
+            if(!isNaN(val)){
+                val=val+"px";
+            }
+        }
+        curElr.style[attr]=val;
+    }
+    setCss(oBox,"width","200px");
+    function setGroup(curElr,options) {
+        if(typeof options ==="object"){
+            for(var key in options){
+                setCss(curElr,key,options[key]);
+            }
+        }
+    }
+    setGroup(oBox,{ width:100,height:200,background:"red",opacity:0.6})
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var num="84848492010";
+    var reg=/^(\d{1,2})((\d{3})+)$/;
+    var str ="";
+    num.replace(reg,function () {
+        console.log(arguments);
+        var part1=arguments[1];
+        var past2=arguments[2];
+        str= part1+","+past2.replace(/\d{3}(?!\b)/g,function () {
+            return arguments[0]+",";
+        })
+    });
+    console.log(str);
+</script>
+</body>
+</html>

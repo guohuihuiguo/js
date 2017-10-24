@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        div{
+            margin:30px auto;
+            width:200px;
+            height:200px;
+            border:3px solid blue;
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    夫君子之行，静以修身，俭以养德。非淡泊无以明志，非宁静无以致远。夫学须静也，才须学也，非学无以广才，非志无以成学。慆慢则不能励精，险躁则不能冶性。年与时驰，意与日去，遂成枯落，多不接世，悲守穷庐，将复何及！ (淡泊 一作：澹泊；慆慢 一作：淫慢)
+</div>
+<script>
+    var oBox = document.getElementsByTagName("div")[0];
+    console.log(oBox);
+//    js中的盒模型
+//    oBox是一个对象
+
+//    1.clientWidth clientHeight 既是元素也是window的属性；
+//    clientWidth=内容的宽度＋左右padding；
+//    clientHeight＝内容的高度＋上下padding；
+//    console.log(oBox.clientWidth);
+//    浏览器可是窗口的宽度和高度
+//    console.log(document.documentElement.clientWidth);//ie5不兼容
+//    console.log(document.documentElement.clientWidth ||document.body.clientWidth);//兼容所有浏览器
+//    console.log(document.documentElement.clientHeight ||document.body.clientHeight);//兼容所有浏览器
+
+//    2.clientTop clientLeft 边框的宽度；不存在clientRight 和clientBotto
+
+//    3.offsetWidth和offsetHeigth:和margin无关；是元素的属性
+//    offsetWidth =内容的宽度＋左右padding+左右边框宽度；
+//    offsetHeight =内容的上下＋上下padding+上下边框宽度；
+
+//    4.offsetTop offsetLeft
+//    offsetTop=距父级参照物内边框上的间距
+//    offsetLeft＝距父级参照物内边框左的间距
+
+//    5.scrollWidth scrollHeight
+//    如果内容不溢出，scrollWidth＝clientWidth=内容宽度＋左右padding，scrollHeight＝clientHeight=内容宽度＋上下padding
+//    如果内容有溢出，scrollWidth＝padding－left＋内容实际宽度，scrollHeight＝padding－top＋内容实际高度，
+</script>
+</body>
+</html>

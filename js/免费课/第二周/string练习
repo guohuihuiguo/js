@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+      *{
+          margin:0;
+          padding:0;
+      }
+      #box{
+          width:100px;
+          height:40px;
+          line-height: 40px;
+          text-align: center;
+          margin:100px auto;
+          cursor: pointer;
+          border: 1px solid #3d92e0;
+          border-radius: 5px;
+      }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+  <script type="text/javascript">
+    var oBox = document.getElementById("box");
+    function getcode() {
+      var str="abcdefghigklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      var str1="ACEFGBO";
+      var i=0;
+      strRest='?";
+
+      while (i<5) {
+        var index=Math.round(Math.random()*61);
+        var ttt=Math.round(Math.random()*6);
+        strRest+=str[index];
+        i++;
+      }
+      oBox.innerHTML=strRest;
+    }
+    oBox.onclick=function () {
+      getcode();
+
+    }
+    getcode();
+  </script>
+</body>
+</html>

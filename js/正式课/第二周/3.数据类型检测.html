@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+div
+<script>
+    //
+    //    function sum() {
+    //        if(arguments.length<0){
+    //            return 0;
+    //        }else if(arguments.length===0){
+    //            return arguments[0];
+    //        }else{
+    //            return function () {
+    //               var total;
+    //               for (var i=0;i<arguments.length;i++){
+    //                   total+=arguments[i];
+    //               }
+    //               return total;
+    //            }
+    //        }
+    //    }
+    //    sum();
+    sum(100, 200);
+//    如果不传。则输出0，
+//    如果传一个那么就返回这个数
+//    如果传俩个数就相加
+    function sum(num1, num2) {
+        if (typeof num1 === "undefined") {
+            num1 = 0;
+        }
+        if (typeof num2 === "undefined") {
+            num2 = 0;
+        }
+        return num1+num2;
+    }
+//    typeof的局限性：不能具体细分对象数据中具体的数据类型；
+    function b(num) {
+        if(typeof num==="function"){
+            num();
+        }
+    }
+    function a() {
+        console.log(1);
+    }
+    b(a);
+    a();
+//    2.instanceof 检测一个实例是都属于类的
+//    Null Undefined 浏览器禁止调用这个内置类
+//    instance :不能检测基本数据类型通过字面量方式创建的；
+//    字面量创建的不是一个标准的实例；
+//    只要当前类在当前实例的原型链上都返回true；
+//    3.constructor：检测当前实例原型链上constructor的属性值
+//    局限性：如果内置类的原型发生改变同样也不能检测出当前实例的类型
+//    4.Object.prototype.toString.call()
+//    获取object这个类原型上的toString方法，再调用call方法，改变了 toString这个方法的this关键字，并且让toString执行，返回一个字符串
+//    返回一个字符串 "［object 类］"
+</script>
+</body>
+</html>

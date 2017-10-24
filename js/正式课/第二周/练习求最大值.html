@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var ary=[3,4,2,8,45,23,15];
+    //排序法
+//    ary.sort(function (a,b) {
+//        return a-b;
+//    })
+//    var max=ary[ary.length-1];
+//    var min=ary[0];
+//    console.log(max, min);
+    //假设法
+//    var cur=ary[0];
+//    var cur1=ary[0];
+//    for(var i=1;i<ary.length;i++){
+//        var max=ary[i];
+//        cur<max?cur=max:null;
+//        cur1>max?cur1=max:null;
+//    }
+//    console.log(cur, cur1);
+    //Math.max Math.min
+//    var max=Math.max.apply(null,ary);
+//    var min=Math.min.apply(null,ary);
+//    console.log(min, max);
+    //eval
+    var max=eval("Math.max("+ary.join()+")");
+    var min=eval("Math.min("+ary.join()+")");
+    console.log(max, min);
+</script>
+</body>
+</html>

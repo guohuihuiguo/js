@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    ~function () {
+        var obj={
+            isNumber:"Number",
+            isString:"String",
+            isBoolean:"Boolean",
+            isNull:"Null",
+            isUndefined:"Undefined",
+            isDate:"Date",
+            isArray:"Array",
+            isObject:"Object",
+            isRegExp:"RegExp"
+
+        };
+        var check={};
+        for(var key in obj){
+            check[key]=(function () {
+                var name=obj[key];
+                return function (val) {
+                    var reg=new RegExp("\\[object "+name+"\\]");
+                    return reg.test(Object.prototype.toString.call(val));
+                }
+            })();
+        }
+        window.check=check;
+    }();
+</script>
+</body>
+</html>

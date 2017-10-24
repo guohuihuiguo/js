@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        html,body{
+            width:100%;
+            height:100%;
+        }
+    </style>
+</head>
+<body>
+<script>
+    var oBody = document.getElementsByTagName("body")[0];
+    oBody.onclick= function(){
+        var color=oBody.style.background;
+        console.log(color)
+        if(color == "blue"){
+            oBody.style.background = "white"
+        }else if(color == "red"){
+            oBody.style.background = "green"
+        }else if(color == "green"){
+            oBody.style.background = "blue"
+        }else{
+            oBody.style.background = "red"
+        }
+    }
+
+</script>
+</body>
+</html>

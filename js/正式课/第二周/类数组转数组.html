@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<script>
+    var oDivs = document.getElementsByTagName("div");
+//    Array.prototype.slice:在ie678下是不兼容的
+    var ary = Array.prototype.slice.call(oDivs);
+    console.log(ary instanceof Array);
+//    兼容代码：
+     var ary = [];
+     for(var i=0;i<oDivs.length;i++){
+         ary.push(oDivs[i]);
+     }
+</script>
+</body>
+</html>

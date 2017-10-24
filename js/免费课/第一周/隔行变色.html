@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin:100px 300px;
+        }
+        ul{
+            width:500px;
+            border: 1px solid #000;
+            -webkit-padding-start: 0;
+        }
+        li{
+            padding:20px;
+            font-size: 12px;
+            list-style: none;
+
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>ninhao </li>
+    <li>ninhao </li>
+    <li>ninhao </li>
+    <li>ninhao </li>
+    <li>ninhao </li>
+    <li>ninhao </li>
+    <li>ninhao </li>
+    <li>ninhao </li>
+    <li>ninhao </li>
+    <li>ninhao </li>
+    <li>ninhao </li>
+    <li>ninhao </li>
+</ul>
+<script >
+    var olis = document.getElementsByTagName("li")
+    for (var i=0;i<olis.length;i++){
+        if(i%2==0){
+            olis[i].style.background="red"
+        }else{
+          olis[i].style.background="green"
+        }
+
+        }
+        if(i%3==2){
+            olis[i].style.background="red"
+        }
+    }
+</script>
+</body>
+</html>

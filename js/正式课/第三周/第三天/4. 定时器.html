@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .warp{
+            width:100%;
+        }
+        img{
+            width:100%;
+        }
+        #box{
+            position: fixed;
+            bottom:30px;
+            right:30px;
+            width:80px;
+            height:80px;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 80px;
+            background: red;
+            color: black;
+            font-size: 12px;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <img src="1.jpg">
+    <img src="2.jpg">
+    <img src="1.jpg">
+    <img src="2.jpg">
+    <img src="1.jpg">
+    <img src="2.jpg">
+    <img src="1.jpg">
+    <img src="2.jpg">
+    <div id="box">回到顶部</div>
+</div>
+
+<script>
+    var obox=document.getElementById("box");
+    obox.onclick=function () {
+        //获取纵向的滚动条的高度
+        var distance= win("scrollTop");
+        var duration=5000;
+        var sudu=distance/duration*10;
+        var timer=setInterval(function () {
+            var curp=win("scrollTop");
+            if(curp<=0){
+                clearInterval(timer);
+            }
+            win("scrollTop",curp-sudu)
+        },10);
+    };
+    var winH=document.documentElement.clientHeight||document.body.clientHeight;
+    //onscroll :随着页面的滚动不停的执行；
+    window.onscroll=function () {
+        if(win("scrollTop")>=winH){
+            obox.style.display="block";
+        }else{
+            obox.style.display="none";
+        }
+    }
+    function win(attr,value) {
+        if(typeof value==="undefined"){
+            return document.documentElement[attr] || document.body[attr];
+        }
+        document.documentElement[attr]=value;
+        document.body[attr]=value;
+    }
+
+</script>
+</body>
+</html>

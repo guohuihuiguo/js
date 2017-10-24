@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    // 面向对象：
+    // 类分为内置类和自定义类；都是函数数据类型
+    // 实例都是对象数据类型的
+    // object function的关系
+    // object是一个基类；是所有对象数据类型的基类
+
+    //理解：
+    //
+    // 1.所有的函数数据类型（普通函数、内置类、自定义类）都是Function的一个实例；Function是所有函数的基类
+    // 2.所有的对象数据类型（普通函数、实例、数组、正则、函数的原型。。。）是object这个基类的一个实例；实例是对象数据类型的
+    //  function是object的实例，object（作为一个内置类）是function的实例，Function的__proto__指向自身的原型
+    // 所有的函数不仅有prototype属性而且有__proto__属性
+
+    // 1.元素对象和object
+    //  元素对象有__proto__这个属性，最终指向Object;_
+    //  DIV#BOX >HTMLDivElement >HTMLElement >Element >Node >EventTarget >Object
+    //  HTMLcollection:集合；
+    // 2.数据类型和面向对象
+    //  ary是Array一个实例
+    var obox = document.getElementById("box");
+
+</script>
+</body>
+</html>

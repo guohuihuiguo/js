@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<script>
+    var oDivs = document.getElementsByTagName("div");
+    //ie678不兼容
+//    var div=Array.prototype.slice.call(oDivs);
+//    console.log(div);
+    //ie678兼容
+//    var ary=[];
+//    for(var i=0;i<oDivs.length;i++){
+//        ary.push(oDivs[i]);
+//    }
+//    console.log(ary);
+    //捕获异常
+    try{
+      console.log(num);
+        console.log(3);
+
+    }catch(e){
+        console.log(e.message);
+        throw new Error("NIN");
+        console.log(1);
+    }finally{
+        console.log(2);
+    }
+</script>
+</body>
+</html>

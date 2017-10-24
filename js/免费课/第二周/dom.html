@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="tab">
+    <div></div>
+</div>
+<div id="node"></div>
+<script>
+    var body=document.getElementByTagName("body");
+//    console.log(onode.previousSibling);//获取上一个哥哥节点  出来是nodename
+//    console.log(onode.previousElementSibling);//获取上一个哥哥元素节点 出来是元素标签（ie8及一下不兼容）
+    var otab=document.getElementById("tab");
+//    console.log(otab.nextSiling);
+//    console.log(otab.nextElementSibling);
+//
+//    function get(cur) {
+//        var pre=cur.previousSibling;
+//        while (pre){
+//            if(pre.nodeType===1){
+//                return pre;
+//            }
+//            pre=pre.previousSibling;
+//        }
+//
+//    }
+
+    console.log(get(body));;
+</script>
+</body>
+</html>

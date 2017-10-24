@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var str = "^1245$";
+    var reg = /(?=^)\d{4}(?=$)/;
+//    var reg = /^\d{4}$/;
+    //    reg=/\d+\b/
+    console.log(reg.exec(str));
+    console.log(reg.exec(str));
+    //    ＋：一次到多次，解决了次数的问题；
+    //    懒惰性：正则捕获存在懒惰性
+    //    解决正则懒惰性：在正则的后面加上一个g
+//    g:原理：每当捕获一次，会记录一下，当前捕获的最后一个字符的索引，下一次在捕获时，会直接从下一个字符开始捕获；
+    //    global：（g）全局的
+    //    ignoreCase:(i)忽略大小写
+    //    multiline:(m)多行匹配；
+//    贪婪性：?
+//    ?:放在量词的后面，取消正则捕获的贪婪性；
+</script>
+</body>
+</html>
